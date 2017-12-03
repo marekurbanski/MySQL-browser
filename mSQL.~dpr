@@ -1,0 +1,62 @@
+program mSQL;
+
+uses
+  Forms,
+  Unit1 in '..\AlphaBlending\Unit1.pas' {main},
+  Unit2 in 'Unit2.pas' {tables},
+  Unit3 in 'Unit3.pas' {header},
+  Unit4 in 'Unit4.pas' {results},
+  Unit5 in 'Unit5.pas' {memo_show},
+  Unit6 in 'Unit6.pas' {PopMenu},
+  Unit7 in 'Unit7.pas' {DBPopMenu},
+  Unit8 in 'Unit8.pas' {memo_text},
+  Unit9 in 'Unit9.pas' {create_table},
+  Unit10 in 'Unit10.pas' {errors},
+  Unit11 in 'Unit11.pas' {history},
+  Unit12 in 'Unit12.pas' {podpowiedzi},
+  Unit13 in 'Unit13.pas' {AboutBox},
+  Unit14 in 'Unit14.pas' {create_database},
+  Unit15 in 'Unit15.pas' {dump},
+  Unit16 in 'Unit16.pas' {update_box},
+  Unit17 in 'Unit17.pas' {PopupMenu2},
+  Unit18 in 'Unit18.pas' {query},
+  Unit19 in 'Unit19.pas' {table_diagnostics},
+  Unit20 in 'Unit20.pas' {Users},
+  Unit21 in 'Unit21.pas' {Settings},
+  Unit22 in 'Unit22.pas' {admin},
+  Unit23 in 'Unit23.pas' {tips},
+  Unit24 in 'Unit24.pas' {zapytanie},
+  Unit25 in 'Unit25.pas' {modify_table};
+
+{$R *.RES}
+
+begin
+  Application.Initialize;
+  Application.Title := 'MySQL browser';
+  Application.CreateForm(Tmain, main);
+  Application.CreateForm(Ttables, tables);
+  Application.CreateForm(Theader, header);
+  Application.CreateForm(Tresults, results);
+  Application.CreateForm(Tmemo_show, memo_show);
+  Application.CreateForm(TPopMenu, PopMenu);
+  Application.CreateForm(TDBPopMenu, DBPopMenu);
+  Application.CreateForm(Tmemo_text, memo_text);
+  Application.CreateForm(Tcreate_table, create_table);
+  Application.CreateForm(Terrors, errors);
+  Application.CreateForm(Thistory, history);
+  Application.CreateForm(Tpodpowiedzi, podpowiedzi);
+  Application.CreateForm(TAboutBox, AboutBox);
+  Application.CreateForm(Tcreate_database, create_database);
+  Application.CreateForm(Tdump, dump);
+  Application.CreateForm(Tupdate_box, update_box);
+  Application.CreateForm(TPopupMenu2, PopupMenu2);
+  Application.CreateForm(Tquery, query);
+  Application.CreateForm(Ttable_diagnostics, table_diagnostics);
+  Application.CreateForm(TUsers, Users);
+  Application.CreateForm(TSettings, Settings);
+  Application.CreateForm(Tadmin, admin);
+  Application.CreateForm(Ttips, tips);
+  Application.CreateForm(Tzapytanie, zapytanie);
+  Application.CreateForm(Tmodify_table, modify_table);
+  Application.Run;
+end.

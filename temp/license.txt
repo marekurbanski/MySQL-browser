@@ -1,0 +1,27 @@
+This software is freeware. 
+You can make  as many copies  as you want, 
+distribute this package and/or publish it 
+on the net.
+You are prohibited from charging, requesting 
+donations  for any such  copies however made,
+from  modifying  the  package,  from reverse
+engineering or decompiling the software.
+
+This package,  including software,  images, text
+files or any other kind of intellectual property, 
+is protected by international copyright laws.
+Improper use of this software will be prosecuted.
+
+THIS APPLICATION IS PROVIDED "AS IS",
+WITHOUT WARRANTY OF ANY KIND, SO USE
+IT AT YOUR OWN RISK.
+GALEONET WILL  NOT BE LIABLE  FOR DIRECT 
+OR INDIRECT  DAMAGES OCCURRED  TO THINGS 
+OR PEOPLE DURING THE USE OF THIS PACKAGE.
+
+IF YOU DON'T  AGREE TO THE TERMS  OF THIS LICENSE,
+YOU MUST  REMOVE ALL  PACKAGE RELATED  FILES FROM 
+YOUR STORAGE DEVICES AND STOP USING THIS SOFTWARE.
+
+Copyright 2009 www2.pl, All rights reserved.
+http://www2.pl

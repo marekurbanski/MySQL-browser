@@ -1,0 +1,99 @@
+###########################################################################################################
+###                                         MysqlQuery Editor                                           ###
+###                                             by www2.pl                                              ###
+###                                         email: info@www2.pl                                         ###
+###                                                                                                     ###
+###                                   Changes in versions bellow                                        ###
+###                                                                                                     ###
+###########################################################################################################
+
+
+
+-----------------------------------------------------------------------------------------------------------
+5.0 Waiting....
+
+This version will be NOT freeware
+
+-----------------------------------------------------------------------------------------------------------
+3.8 (2009-10-19)
+Fixed Query Window - added F1 button for hints/helps
+Added colored query in Query Window (not parametrized)
+Added row count in Query Window
+Added fixing sql query (automaticaly replace string from file "autofix.dat")
+Changed Help/Hints to manulal, it shows the manual of function under cursor where on click menual button
+
+
+	Waiting to fix export when there is no data
+	Waiting to add create database/table/procedure/function schema !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+-----------------------------------------------------------------------------------------------------------
+3.7 (2009-10)
+
+Added slow query analizer
+Added scrollbars to query window
+Fixed Execute query without query window 
+Added showprocesslist
+Added diagnostics on tables (optimize,repair, check, analyze)
+Added Settings in menu
+Added unicode settings
+Added auto check for updates
+Added Ask for query name for demaind in settings
+Added Save log to file 
+Added Increment logs
+Fixed closing tabs
+Fixed deleteing/saving connections
+
+-----------------------------------------------------------------------------------------------------------
+3.6.4 (2009-09-24)
+
+Added query analize
+Added check update function
+Added whats new button
+Added send suggestions button
+-----------------------------------------------------------------------------------------------------------
+3.5.4
+
+Fixed deleting queries
+Fixed filtering
+Added export to Excel
+Added export selected column from result
+-----------------------------------------------------------------------------------------------------------
+3.2.1
+
+Added hint for queries
+Added execute only selected part of query
+
+-----------------------------------------------------------------------------------------------------------
+3.2.1
+
+Added Cut button
+Added Copy button
+Added Undo button
+Added Paste button
+Added Find button
+Added WAIT icon when query is executed
+
+-----------------------------------------------------------------------------------------------------------
+3.1.1
+
+Added export to XML
+Added export to CSV
+Added export to clipboard
+-----------------------------------------------------------------------------------------------------------
+2.9.4
+
+Added multiserver connections
+
+-----------------------------------------------------------------------------------------------------------
+2.4.4 (2009-07-29)
+
+Removed all formated text chortcuts in query (CTRL+I, CTRL+U etc)
+Added shortcut in query CTRL+E for executing query
+Added shortcut in query CTRL+O for opening query
+Added shortcut in query CTRL+S for saving query
+Added part od checking updates on server
+Added login without saving data before
+Added SQLWait cursor while executing query and expanding left tree
+
+-----------------------------------------------------------------------------------------------------------

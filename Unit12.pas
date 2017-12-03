@@ -1,0 +1,171 @@
+unit Unit12;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls, mySQLClient, Grids, Aligrid, ComCtrls, DBGrids, CRGrid;
+
+type
+  Tpodpowiedzi = class(TForm)
+    res: TStringAlignGrid;
+    load_data: TButton;
+    Edit1: TEdit;
+    ListBox1: TListBox;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    memo1: TRichEdit;
+    memo2: TRichEdit;
+    Edit2: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    ressql: TCRDBGrid;
+    procedure load_dataClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Edit1Change(Sender: TObject);
+    procedure ListBox1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  podpowiedzi: Tpodpowiedzi;
+
+implementation
+
+uses Unit1;
+
+{$R *.DFM}
+
+
+function mysql_query_fill2(query: string; grid:Tstringaligngrid): string;
+var
+// zwraca tablice z wynikami zapytania do bazy
+// zapisuje ja w w wybranym stringgrid
+s,res:string;
+i,j:integer;
+  begin
+  try
+//  if(grid.Visible=false) then grid.Visible:=true;
+//  status('Query fill: '+query,false);
+//  for i:=0 to grid.ColCount-1 do
+//    for j:=0 to grid.RowCount-1 do grid.cells[i,j]:='';
+  main.Query.SQL.Clear;
+  main.Query.sql.add(query);
+  main.Query.open;
+
+  //ustawianie wygladu grida
+  grid.DefaultRowHeight:=16;
+  grid.Font.Size:=6;
+  grid.RowCount:=2;
+  grid.ColCount:=2;
+  grid.FixedCols:=1;
+  grid.FixedRows:=1;
+  grid.colcount:=podpowiedzi.ressql.DataSource.DataSet.FieldCount;
+  grid.rowcount:=podpowiedzi.ressql.DataSource.DataSet.RecordCount;
+  podpowiedzi.ressql.DataSource.DataSet.First;
+  for i:=1 to grid.RowCount-1 do
+      begin
+      for j:=1 to grid.ColCount do
+         begin
+         grid.Cells[j-1,i]:=podpowiedzi.ressql.DataSource.DataSet.Fields.FieldByNumber(j).asstring;
+         //showmessage(podpowiedzi.ressql.DataSource.DataSet.Fields.FieldByNumber(j).asstring);
+         application.ProcessMessages;
+         end;
+         try
+         podpowiedzi.ressql.DataSource.DataSet.Next;
+         except end;
+      end;
+  except end;
+  end;
+
+
+procedure Tpodpowiedzi.load_dataClick(Sender: TObject);
+var
+q:string;
+begin
+podpowiedzi.FormStyle:=fsStayOnTop;
+
+if(res.RowCount<100) then
+begin
+try
+q:='SELECT * from mysql.help_topic order by name';
+mysql_query_fill2(q,res);
+except end;
+end;
+
+end;
+
+procedure Tpodpowiedzi.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+action:=caNone;
+podpowiedzi.FormStyle:=fsNormal;
+podpowiedzi.visible:=false;
+end;
+
+function podobne(kawalek,calosc:string):boolean;
+begin
+
+if(uppercase(copy(kawalek,1,length(kawalek))) = uppercase(copy(calosc,1,length(kawalek)))) then
+        result:=true else result:=false;
+end;
+
+procedure Tpodpowiedzi.Edit1Change(Sender: TObject);
+var
+i:integer;
+begin
+try
+listbox1.Clear;
+for i:=1 to res.RowCount-1 do
+        begin
+        application.ProcessMessages;
+        if(podobne(edit1.text,res.cells[1,i])=true) then
+                begin
+                listbox1.items.add(res.cells[1,i]);
+                end;
+        end;
+listbox1.OnClick(nil);
+except end;
+end;
+
+procedure Tpodpowiedzi.ListBox1Click(Sender: TObject);
+var
+s:string;
+i:integer;
+begin
+try
+if(listbox1.ItemIndex<0) then i:=0 else i:=listbox1.ItemIndex;
+s:=listbox1.Items.Strings[i];
+for i:=1 to res.RowCount-1 do
+        begin
+        application.ProcessMessages;
+        if(s=res.cells[1,i]) then
+                begin
+                memo1.text:=stringreplace(res.cells[3,i],chr(13),chr(10)+chr(13),[rfreplaceall]);
+                memo2.text:=stringreplace(res.cells[4,i],chr(13),chr(10)+chr(13),[rfreplaceall]);
+                //memo2.text:=res.cells[4,i];
+                edit2.text:=res.cells[5,i];
+                end;
+        end;
+
+except end;
+end;
+
+procedure Tpodpowiedzi.Button2Click(Sender: TObject);
+begin
+podpowiedzi.Width:=670;
+end;
+
+procedure Tpodpowiedzi.Button1Click(Sender: TObject);
+begin
+podpowiedzi.Width:=280;
+//wysokosc=264
+end;
+
+end.

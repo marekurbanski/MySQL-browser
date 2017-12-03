@@ -1,0 +1,155 @@
+unit Unit21;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  StdCtrls,registry, ExtCtrls;
+
+type
+  TSettings = class(TForm)
+    updates: TCheckBox;
+    Button1: TButton;
+    load_settings: TButton;
+    query_names: TCheckBox;
+    execute: TCheckBox;
+    Bevel1: TBevel;
+    logs: TCheckBox;
+    increment_logs: TCheckBox;
+    Label2: TLabel;
+    fontsize: TComboBox;
+    Label3: TLabel;
+    res_font_size: TComboBox;
+    windows_positions: TCheckBox;
+    ctips: TCheckBox;
+    askforsave: TCheckBox;
+    multiline: TCheckBox;
+    debug: TCheckBox;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
+    procedure load_settingsClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Settings: TSettings;
+
+implementation
+
+uses Unit23, Unit3;
+
+{$R *.DFM}
+
+procedure TSettings.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+action:=canone;
+if(application.messagebox('Do you want to save the settings ?','Settings',MB_YESNO)=6) then button1.click;
+settings.Visible:=false;
+end;
+
+procedure TSettings.Button1Click(Sender: TObject);
+var
+tak,q:string;
+rejestr:tregistry;
+begin
+Rejestr:=TRegistry.Create;
+Rejestr.RootKey:=(HKEY_CURRENT_USER);
+rejestr.CreateKey('SOFTWARE\www2.pl\mSQLEditor');
+Rejestr.OpenKey('SOFTWARE\www2.pl\mSQLEditor',False);
+
+if(debug.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('debug',tak);
+if(multiline.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('multiline',tak);
+if(askforsave.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('askforsave',tak);
+if(updates.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('autoupdate',tak);
+if(unicode.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('unicode',tak);
+rejestr.WriteString('charset',charset.Text);
+if(query_names.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('askforquery',tak);
+if(execute.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('autoexecute',tak);
+if(logs.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('savelogs',tak);
+if(increment_logs.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('increment',tak);
+if(windows_positions.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('windows_positions',tak);
+if(ctips.Checked=true) then tak:='YES' else tak:='NO';
+rejestr.WriteString('tips',tak);
+
+rejestr.WriteString('query_font_size',fontsize.text);
+rejestr.WriteString('result_font_size',res_font_size.text);
+
+settings.Visible:=false;
+showmessage('Some settings need a restart application to take effects');
+end;
+
+procedure TSettings.load_settingsClick(Sender: TObject);
+var
+tak,q:string;
+rejestr:tregistry;
+first:boolean;
+begin
+try
+first:=false;
+Rejestr:=TRegistry.Create;
+Rejestr.RootKey:=(HKEY_CURRENT_USER);
+first:=Rejestr.OpenKey('SOFTWARE\www2.pl\mSQLEditor',False);
+if first then
+        begin
+        tak:=rejestr.ReadString('debug');
+        if(tak='YES') then debug.Checked:=true else debug.Checked:=false;
+        tak:=rejestr.ReadString('multiline');
+        if(tak='YES') then multiline.Checked:=true else multiline.Checked:=false;
+        tak:=rejestr.ReadString('askforsave');
+        if(tak='YES') then askforsave.Checked:=true else askforsave.Checked:=false;
+        tak:=rejestr.ReadString('autoupdate');
+        if(tak='YES') then updates.Checked:=true else updates.Checked:=false;
+        tak:=rejestr.ReadString('unicode');
+        if(tak='YES') then unicode.Checked:=true else unicode.Checked:=false;
+        tak:=rejestr.ReadString('askforquery');
+        if(tak='YES') then query_names.Checked:=true else query_names.Checked:=false;
+        tak:=rejestr.ReadString('autoexecute');
+        if(tak='YES') then execute.Checked:=true else execute.Checked:=false;
+        tak:=rejestr.ReadString('savelogs');
+        if(tak='YES') then logs.Checked:=true else logs.Checked:=false;
+        tak:=rejestr.ReadString('increment');
+        if(tak='YES') then increment_logs.Checked:=true else increment_logs.Checked:=false;
+        tak:=rejestr.ReadString('windows_positions');
+        if(tak='YES') then windows_positions.Checked:=true else windows_positions.Checked:=false;
+        tak:=rejestr.ReadString('tips');
+        if(tak='YES') then ctips.Checked:=true else ctips.Checked:=false;
+        tips.CheckBox1.Checked:=ctips.Checked;
+        end else
+        begin
+        if(header.visible=true) then
+                begin
+                // pierwsze uruchomienie
+                first:=rejestr.CreateKey('SOFTWARE\www2.pl\mSQLEditor');
+                multiline.Checked:=true;
+                askforsave.Checked:=true;
+                updates.Checked:=true;
+                query_names.Checked:=true;
+                ctips.Checked:=true;
+                settings.Visible:=true;
+                debug.Checked:=true;
+                end;
+        end;
+except end;
+
+fontsize.Text:=rejestr.ReadString('query_font_size');
+if fontsize.Text='' then fontsize.text:='9';
+
+res_font_size.Text:=rejestr.ReadString('result_font_size');
+if res_font_size.Text='' then res_font_size.text:='9';
+
+end;
+
+end.

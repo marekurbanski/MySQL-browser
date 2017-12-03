@@ -1,0 +1,200 @@
+###########################################################################################################
+###                                         	   m-SQL                                                ###
+###                                             by www2.pl                                              ###
+###                                         email: info@www2.pl                                         ###
+###                                                                                                     ###
+###                                     Changes in versions bellow                                      ###
+###                                                                                                     ###
+###########################################################################################################
+
+TODO
+-----------------------------------------------------------------------------------------------------------
+fields modyfications of tables in one windows
+Primary key in different color
+tip where to put object from drag&drop
+drag&drop field name from result to query window
+icon of primary key on result windows
+
+4.3.6.15 (2011-09-06)
+Added tool for moving all windows while drag header
+Added Alt+F1 for full screen with tables at left side
+Added Alt+F2 for full screen with tables at right side
+
+-----------------------------------------------------------------------------------------------------------
+4.3.5.11 (2011-09-05)
+Added editing triggers
+
+-----------------------------------------------------------------------------------------------------------
+4.3.4.7 (2011-05-05)
+Added editing functions
+
+-----------------------------------------------------------------------------------------------------------
+4.3.4.5 (2011-05-02)
+Added mysql encoding
+Added limit top rows in export
+
+-----------------------------------------------------------------------------------------------------------
+4.3.3.1 (2009-12-29)
+Fixed connections type
+Fixed update
+
+-----------------------------------------------------------------------------------------------------------
+4.3.2.1 (2009-12-26)
+Fixed result display
+Added/Fixed auto/manual updates
+
+-----------------------------------------------------------------------------------------------------------
+4.2.0.0 (2009-12-18)
+Updated engine of connections
+Added colorized rows in results
+Added mail result as attachement via Outlook
+Comparing two results
+Added field title bolded
+Added hide column in results window
+Added Memory In Use meter on header
+
+-----------------------------------------------------------------------------------------------------------
+4.1.0.1 (2009-11-30)
+Added conditions in graph query
+Fixed connections
+Added log on error (helperr.log - send this file to info@www2.pl for debugging when you have some errors)
+
+-----------------------------------------------------------------------------------------------------------
+4.0.2.45 (2009-11-25)
+Fixed graph create query
+Added version no. in first window
+Fixed first run procedure
+
+-----------------------------------------------------------------------------------------------------------
+4.0.1 (2009-11-24)
+Added splitted buttons (and in menu) 3 views.
+Added button generate SQL from design
+
+
+-----------------------------------------------------------------------------------------------------------
+4.0.0.40 (2009-11-23)
+Changed name from MySQL Query Browser to m-SQL Query Manager
+Added connection do MSSQL
+Added colored actual query
+Changed server address to connection name in connection tree
+Added first part of graphic query designer
+Windows is splitted on 3 parts now
+Added remove column in create table
+
+-----------------------------------------------------------------------------------------------------------
+3.9.8 (2009-11-10)
+Fixed Export to Excel (colored header, fixed dots, fixed integer values - they are not as a string now)
+
+
+-----------------------------------------------------------------------------------------------------------
+3.9.7 (2009-10-27)
+Added minimalize button
+Fixed window position after executed query
+Added default directory for saving and loading queries
+Fixed Create table script
+Fixed Insert script (with PHP option)
+Fixed showing indexes
+Added Drag&Drop to SELECT,FROM,WHERE,GROUP BY, HAVING, ORDER buttons/groups
+Addes Focus on query windows when Application is active
+Fixed Exports, now exports are from the begining not from the actual positions
+Fixed Saving queries
+Added Query Execution time
+	Waiting to add create procedure/function schema !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+-----------------------------------------------------------------------------------------------------------
+3.9.6.44 (2009-10-24)
+Added PopUp menu in QueryWindow withe execute button
+Added drag&drop tables and fields from tablelist to query window
+Added Compuer parameters in first windows
+Added Windows set two default positions
+Added Save windows positions in settings
+Fixed export when there is no data
+Fixed Query Analyzer - it show full query now
+Addes moving/spliter in windows of Query Analyzer
+Fixed execute and analyze functions where there is no query
+Fixed help window
+Added Autofill in Query Window table.* => table.field1, table.field2 ...
+
+
+-----------------------------------------------------------------------------------------------------------
+3.8 (2009-10-19)
+Fixed Query Window - added CTRL+SPACE shortcut for hints/helps
+Added colored query in Query Window (not parametrized)
+Added row count in Query Window
+Added fixing sql query (automaticaly replace string from file "autofix.dat")
+Changed Help/Hints to manulal, it shows the manual of function under cursor where on click menual button
+Added personalized font size query and result
+Added Redo button
+
+
+-----------------------------------------------------------------------------------------------------------
+3.7 (2009-10)
+
+Added slow query analizer
+Added scrollbars to query window
+Fixed Execute query without query window 
+Added showprocesslist
+Added diagnostics on tables (optimize,repair, check, analyze)
+Added Settings in menu
+Added unicode settings
+Added auto check for updates
+Added Ask for query name for demaind in settings
+Added Save log to file 
+Added Increment logs
+Fixed closing tabs
+Fixed deleteing/saving connections
+
+-----------------------------------------------------------------------------------------------------------
+3.6.4 (2009-09-24)
+
+Added query analize
+Added check update function
+Added whats new button
+Added send suggestions button
+-----------------------------------------------------------------------------------------------------------
+3.5.4
+
+Fixed deleting queries
+Fixed filtering
+Added export to Excel
+Added export selected column from result
+-----------------------------------------------------------------------------------------------------------
+3.2.1
+
+Added hint for queries
+Added execute only selected part of query
+
+-----------------------------------------------------------------------------------------------------------
+3.2.1
+
+Added Cut button
+Added Copy button
+Added Undo button
+Added Paste button
+Added Find button
+Added WAIT icon when query is executed
+
+-----------------------------------------------------------------------------------------------------------
+3.1.1
+
+Added export to XML
+Added export to CSV
+Added export to clipboard
+-----------------------------------------------------------------------------------------------------------
+2.9.4
+
+Added multiserver connections
+
+-----------------------------------------------------------------------------------------------------------
+2.4.4 (2009-07-29)
+
+Removed all formated text chortcuts in query (CTRL+I, CTRL+U etc)
+Added shortcut in query CTRL+E for executing query
+Added shortcut in query CTRL+O for opening query
+Added shortcut in query CTRL+S for saving query
+Added part od checking updates on server
+Added login without saving data before
+Added SQLWait cursor while executing query and expanding left tree
+
+-----------------------------------------------------------------------------------------------------------
